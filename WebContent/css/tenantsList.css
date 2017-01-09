@@ -1,0 +1,40 @@
+.check-mark{
+	position: absolute;
+	left: 8px;
+	top: 6px;
+	font-size: 8px;
+	background: #4078C0 none repeat scroll 0% 0%;
+	color: #FFF;
+	width: 12px;
+	padding: 2px;
+	border-radius: 30px;	
+	display: inline-block;
+	right: 15px;
+	margin-top: 6px;
+}
+
+.dropdown-menu li a span.text{
+	margin-left: 10px;
+}
+
+.categoryDropDown{
+	float: left; padding: 10px;
+}
+.legendDropDown{
+	color: #333300; font-size:14px;	
+}
+.divSpacer{
+	border-bottom: 1px solid #111;float: left;width: 100%;margin-top: 10px;
+}
+.mainDiv{
+	float:left; padding: 0px 10px;width:100%; display:block;
+}
+.breadCum{
+	padding: 0px 10px;width: 100%;float: left;
+}
+.filterBtn{
+	color: #000000 ; cursor: pointer;
+}
+.filterBtn:hover{
+	text-decoration: underline;
+}

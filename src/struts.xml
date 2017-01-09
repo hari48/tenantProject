@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.action.extension" value="" />
+	<constant name="struts.action.excludePattern" value=".*.jsp" />
+
+	<package name="default" extends="json-default" namespace="/control">
+		<interceptors>
+			<interceptor name="populateUser"
+				class="com.sps.interceptors.PopulateUserInterceptor"></interceptor>
+			<interceptor name="checkSession"
+				class="com.sps.interceptors.CheckSessionInterceptor"></interceptor>
+			<interceptor-stack name="logInStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="populateUser"></interceptor-ref>
+			</interceptor-stack>
+			<interceptor-stack name="defaultSPSStack">
+				<interceptor-ref name="checkSession"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="defaultSPSStack" />
+
+		<global-results>
+			<result name="input">/login.jsp</result>
+		</global-results>
+
+		<action name="login" class="com.sps.actions.LoginAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/login.jsp</result>
+		</action>
+
+		<action name="authenticate" class="com.sps.actions.AuthenticateAction">
+			<interceptor-ref name="logInStack"></interceptor-ref>
+			<result name="success" type="redirect">/control/home</result>
+		</action>
+
+		<action name="home">
+			<result name="success">/home.jsp</result>
+		</action>
+
+		<action name="settings">
+			<result name="success">/settings.jsp</result>
+		</action>
+
+		<action name="tenantList" class="com.sps.actions.TenantListAction">
+			<result name="success">/tenantsList.jsp</result>
+		</action>
+
+		<action name="addTenant">
+			<result name="success">/newTenant.jsp</result>
+		</action>
+		
+		<action name="ajaxChangePasswordAction"
+			class="com.sps.ajaxActions.ChangePasswordAjaxAction">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		
+		<action name="contentAction" class="com.sps.ajaxActions.GetContentAjaxAction"
+		 method="getContent">
+			<result name="changePassword">/changePassword.jsp</result>
+			<result name="viewUsers">viewUsers</result>
+			<result name="addUser">/addUser.jsp</result>
+		</action>
+		
+		<action name="modifyUserFormAction" class="com.sps.ajaxActions.ModifyUserFormAction">
+			<result name="success">/addUser.jsp</result>
+		</action>
+		
+		<action name="viewUsers" class="com.sps.ajaxActions.ViewUsersAction">
+			<result name="success">/viewUsers.jsp</result>
+		</action>
+		
+		<action name="addModifyUser" class="com.sps.ajaxActions.AddModifyUserAction">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+		</action>
+		
+	</package>
+
+</struts>

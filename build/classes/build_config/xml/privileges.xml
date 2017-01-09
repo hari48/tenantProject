@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<privileges>
+
+<privilege id="1" >
+	<name>Add/Delete Password</name>
+	<url></url>
+</privilege>
+
+<privilege id="2" >
+	<name>View User / Password</name>
+	<url></url>
+</privilege>
+
+<privilege id="4" >
+	<name>View Audit History</name>
+	<url></url>
+</privilege>
+
+<privilege id="8" >
+	<name>View Trigger History</name>
+	<url></url>
+</privilege>
+
+<privilege id="16" >
+	<name>Execute Query</name>
+	<url></url>
+</privilege>
+
+<privilege id="32" >
+	<name>View Logs</name>
+	<url></url>
+</privilege>
+
+<privilege id="64" >
+	<name>Download Files</name>
+	<url></url>
+</privilege>
+
+<privilege id="128" >
+	<name>Run FJS Threads</name>
+	<url></url>
+</privilege>
+
+</privileges>

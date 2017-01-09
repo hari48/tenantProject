@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+	"http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<!-- a tab library descriptor -->
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>2.3</jspversion>
+	<shortname>sps</shortname>
+	<uri>/spstags</uri>
+	<info>
+		Custom Tags for FranConnect
+	</info>
+	<!-- insert tag -->
+	
+	<tag>
+	<name>spsTable</name>
+	<tagclass>com.sps.tagClasses.SPSTable</tagclass>
+	<bodycontent>JSP</bodycontent>
+	<info>
+		Tag for creting summary table.
+		Table header and a button can be provided.
+	</info>
+	<attribute>
+		<name>map</name>
+		<required>true</required>
+		<rtexprvalue>false</rtexprvalue>
+	</attribute>
+	<attribute>
+		<name>tagId</name>
+		<required>false</required>
+		<rtexprvalue>false</rtexprvalue>
+	</attribute>
+	<attribute>
+		<name>tagClass</name>
+		<required>false</required>
+		<rtexprvalue>false</rtexprvalue>
+	</attribute>
+	<attribute>
+		<name>scope</name>
+		<required>false</required>
+		<rtexprvalue>false</rtexprvalue>
+	</attribute>
+</tag>
+
+<tag>
+	<name>column</name>
+	<tagclass>com.sps.tagClasses.SPSColumn</tagclass>
+	<bodycontent>empty</bodycontent>
+	<info>
+		SPS table's column tag
+	</info>
+	<attribute>
+		<name>displayName</name>
+		<required>true</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+		<name>dbName</name>
+		<required>true</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+</tag>
+	
+</taglib>
